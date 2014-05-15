@@ -35,7 +35,7 @@ public class AC_LZHTTPTest extends Activity{
         tv_httpResponse.setText("显示HTTP结果");
         
         btnHttp = (Button) findViewById(R.id.btn_get);
-        btnHttp.setOnClickListener(new MOnClick(5));
+        btnHttp.setOnClickListener(new MOnClick(4));
     }
 
     private class MOnClick implements OnClickListener{
@@ -74,16 +74,16 @@ public class AC_LZHTTPTest extends Activity{
             case 4:// 上传
                 final HttpControl control = new HttpControl(false);
                 URL_STR = "http://222.92.116.172:8888/post.php";// http://222.92.116.172:8888/ftp/
-                final File file = new File(Environment.getExternalStorageDirectory(),"1111111_222222222_222222.png");
+                final File file = new File(Environment.getExternalStorageDirectory(),"A88_99_00.png");
                 HttpUtils.getInstance().exePostUploadFile(URL_STR, "mediaFile", file.getAbsolutePath(),control, new HttpProgressCallBack() {
                     @Override
                     public void onLoading(final int progress) {
                         // TODO Auto-generated method stub
                         L.i("onLoading file: %s <%d>", file.getAbsolutePath(),progress);
                         
-                        if(progress>60){
-                            control.setCancel(true);
-                        }
+//                        if(progress>60){
+//                            control.setCancel(true);
+//                        }
                         
                         handler.post(new Runnable() {
                             @Override
